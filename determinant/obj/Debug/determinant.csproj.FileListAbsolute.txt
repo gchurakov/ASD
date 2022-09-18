@@ -1,0 +1,6 @@
+/Users/admin/RiderProjects/determinant/determinant/bin/Debug/determinant.exe
+/Users/admin/RiderProjects/determinant/determinant/bin/Debug/determinant.pdb
+/Users/admin/RiderProjects/determinant/determinant/obj/Debug/determinant.csproj.AssemblyReference.cache
+/Users/admin/RiderProjects/determinant/determinant/obj/Debug/determinant.csproj.CoreCompileInputs.cache
+/Users/admin/RiderProjects/determinant/determinant/obj/Debug/determinant.exe
+/Users/admin/RiderProjects/determinant/determinant/obj/Debug/determinant.pdb

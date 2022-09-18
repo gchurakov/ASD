@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace determinant
 {
     internal class Program
@@ -94,7 +93,7 @@ namespace determinant
                 for (int i = 0; i < matrix.GetLength(0); i++)//перебор строк
                 {
                     for (int j = 0; j < matrix.GetLength(1); j++)//перебор элементов
-                        Console.Write($"{matrix[i, j],4}");
+                        Console.Write(String.Format("{0:4}",  $"{matrix[i, j],4} "));
                     Console.WriteLine();
                 }
             else Console.WriteLine("Пустой массив!");
@@ -177,9 +176,11 @@ namespace determinant
 
         static int sign = 1;//знак детерминанта
         
+        
+        
         static double[,] GaussMatrix(double[,] matrix)
         {
-            if (matrix.GetLength(0) == 1) 
+            if (matrix.GetLength(0) <= 1) 
                 return matrix; // возврат матрица 1*1
 
 
@@ -204,7 +205,15 @@ namespace determinant
                 }
                 
             }
-            GaussMatrix(SmallerMatrixGauss(matrix));
+            double[,] newMatrix = GaussMatrix(SmallerMatrixGauss(matrix));
+
+            for (int i = 0; i < newMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < newMatrix.GetLength(0); j++)
+                {
+                    matrix[i + 1, j + 1] = newMatrix[i, j];
+                }
+            }
             return matrix;
         }
 
@@ -225,8 +234,8 @@ namespace determinant
                     break;
                 }
 
-            //if (notNull == -1)//ненулевых элементов нет
-            //    return matrix;//зациклим?) ага)
+            if (notNull == -1)//ненулевых элементов нет
+                return new double[,]{{0}};//зациклим?) ага)
 
             for (int i = 0; i < matrix.GetLength(0); i++)//своп линий
             {
@@ -258,7 +267,7 @@ namespace determinant
             //int[,] matrix = InitMatrix();
             //PrintMatrix(matrix);
             
-            //Console.WriteLine(Determinant(matrix));
+            //Console.WriteLine(Determinant(matrix)+ '\n');
             
             //гаус
             //double[,] matrixD = new double[,]{{5, 2, -1, 6}, {3, 4, -1, 5},{0, 0, 0, 1},{-1, 2, -2, 0}};
